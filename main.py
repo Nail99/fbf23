@@ -149,31 +149,15 @@ async def member_pass(message: types.Message, state: FSMContext):
 @dp.message_handler(Text(equals='Да'))
 async def price_yes(message: types.Message):
     await message.answer(text='Ваши данные сохранены 🙌', reply_markup=signed_up)
-    if choose_pass[0] == 'Full Pass':
-        await message.answer(text=text.final_price + str(text.full_march - 2000))
-        await message.answer(text=text.final_price1)
-    else:
-        await message.answer(text=text.final_price + str(text.solo_march - 2000))
-        await message.answer(text=text.final_price1)
+    await message.answer(text=text.final_price)
+    await message.answer(text=text.final_price1)
 
 
 @dp.message_handler(Text(equals='Нет'))
 async def price_no(message: types.Message):
     await message.answer(text='Ваши данные сохранены 🙌', reply_markup=signed_up)
-    if choose_city[0].lower() == 'астана':
-        if choose_pass[0] == 'Full Pass':
-            await message.answer(text=text.final_price + str(text.full_march))
-            await message.answer(text=text.final_price1)
-        else:
-            await message.answer(text=text.final_price + str(text.solo_march))
-            await message.answer(text=text.final_price1)
-    else:
-        if choose_pass[0] == 'Full Pass':
-            await message.answer(text=text.final_price + str(text.full_march - 2000))
-            await message.answer(text=text.final_price1)
-        else:
-            await message.answer(text=text.final_price + str(text.solo_march - 2000))
-            await message.answer(text=text.final_price1)
+    await message.answer(text=text.final_price)
+    await message.answer(text=text.final_price1)
 
 
 if __name__ == "__main__":
